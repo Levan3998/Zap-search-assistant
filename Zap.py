@@ -5,8 +5,10 @@ import pandas as pd
 import SupFunc as sup
 import json
 from datetime import  date
-import matplotlib.pyplot as plt
 
+#######
+#PSN-5#
+#######
 driver = webdriver.Chrome()
 url = 'https://www.zap.co.il/model.aspx?modelid=1096042'
 driver.get(url)
@@ -15,7 +17,7 @@ driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 products = driver.find_elements_by_class_name('StoreLine')
 products_list = []
 prev_name = []
-for product in products:
+for product in products:  #search all products
     price = product.find_element_by_class_name('PriceNum').text
     name2 = product.find_element_by_tag_name('a').get_attribute('aria-label').split(" ")[4:]
     name2 = sup.add_spaces(name2)
